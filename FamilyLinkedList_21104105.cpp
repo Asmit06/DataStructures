@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//class to create doubly linked list node
 class Node
 {
     public:
@@ -19,23 +20,7 @@ class Node
     }
 };
 
-void add(Node* head, int age, string name)
-{
-    Node* nh = new Node(name, age);
-    nh->aft = head;
-    head->bef = nh;
-    head = nh;
-}
-
-void print(Node* head)
-{
-    while(head!=NULL)
-    {
-        cout<<head->name<<" "<<head->age<<endl;
-        head = head->aft;
-    }
-}
-
+//function to create a node
 Node* create(string *name, int *age, int members)
 {
     Node* curr=NULL;
@@ -46,7 +31,7 @@ Node* create(string *name, int *age, int members)
     {
         
         curr = new Node(name[i],age[i]);
-        if(head==NULL)
+        if(head==NULL)   //checks if linked list is currently empty
         {
             head = curr;
         }
@@ -61,6 +46,27 @@ Node* create(string *name, int *age, int members)
     return head;
 }
 
+//function to add name and age to linked list head node 
+void add(Node* head, int age, string name)
+{
+    Node* nh = new Node(name, age);
+    nh->aft = head;
+    head->bef = nh;
+    head = nh;
+}
+
+//function to print contents of linked list node
+void print(Node* head)
+{
+    while(head!=NULL)
+    {
+        cout<<head->name<<" "<<head->age<<endl;
+        head = head->aft;
+    }
+}
+
+
+//main function which takes user input
 int main()
 {
     int n;
