@@ -76,14 +76,14 @@ int main()
     int *age = new int[n];
     string *name = new string[n];
 
-    cout<<"Enter name of family member and ages"<<endl;
+    cout<<"Enter family member and ages"<<endl;
     for(int i=0;i<n;i++)
     {
         //cout<<"Enter details of member :";
         cin>>name[i]>>age[i];
     }
     Node* head = create(name, age, n);
-    cout<<"Family member Details :"<<"\n";
+    cout<<"Family member    Age :"<<"\n";
     print(head);
 return 0;
 }
