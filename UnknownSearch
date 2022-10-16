@@ -1,1 +1,42 @@
 
+def findLoc(List, x): #finds approximate size of sub-array which contains the key
+ 
+    low, high, val = 0, 1, List[0]
+    while val < x:
+        low = high            
+        high = 2*high   #doubling size of the subarray to reduce time complexity       
+        val = List[high]      
+    return Binsearch(List, low, high, x)
+            
+
+def Binsearch(arr,left,right,num):#normal binary search
+    if left>right:
+        return -1
+    else:
+        mid=(left+right)//2
+        
+        if arr[mid]==num:
+            
+            return mid
+            
+            
+        elif arr[mid]>num:
+            return Binsearch(arr,left,mid-1,num)
+            
+            
+        elif arr[mid]<num:
+            return Binsearch(arr,mid+1,right,num)
+           
+        
+List=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+print("The List is ",List)
+x=int(input("Number to find :"))     
+result=findLoc(List,x)
+if result!=-1:
+    print("Found at :",result) 
+else:
+    print("Given number is not in the list")
+#Output
+#The List is  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+#Number to find :9
+#Found at : 8
